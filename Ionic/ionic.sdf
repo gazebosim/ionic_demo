@@ -380,5 +380,21 @@
       <name>Interior</name>
       <uri>interior</uri>
     </include>
+
+    <!-- breakfast menus - 1 original, 1 convex decomposed-->
+    <include>
+      <static>false</static>
+      <name>Breakfast menu decomposed</name>
+      <pose>-1.7152 2.623 0.751 0 0 0.0</pose>
+      <uri>breakfast_menu_decomposed</uri>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>Breakfast menu</name>
+      <pose>-2.1686 2.623 0.751 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/breakfast_menu</uri>
+    </include>
+
   </world>
 </sdf>
