@@ -8,7 +8,7 @@ http://creativecommons.org/licenses/by/4.0/ or send a letter
 to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 -->
 <sdf version="1.11">
-  <model name="breakfast_menu_decomposed_low">
+  <model name="breakfast_menu_convex_hull">
     <link name="link_0">
       <visual name="visual">
         <geometry>
@@ -19,11 +19,7 @@ to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
       </visual>
       <collision name="collision_0">
         <geometry>
-          <mesh optimization="convex_decomposition">
-            <convex_decomposition>
-            <max_convex_hulls>8</max_convex_hulls>
-            <voxel_resolution>100000</voxel_resolution>
-            </convex_decomposition>
+          <mesh optimization="convex_hull">
             <uri>meshes/model.obj</uri>
           </mesh>
         </geometry>

@@ -399,9 +399,9 @@
 
     <include>
       <static>false</static>
-      <name>Breakfast menu decomposed low res</name>
+      <name>Breakfast menu convex hull</name>
       <pose>-1.73 2.85 0.751 0 0 0.0</pose>
-      <uri>breakfast_menu_decomposed_low</uri>
+      <uri>breakfast_menu_convex_hull</uri>
     </include>
 
   </world>

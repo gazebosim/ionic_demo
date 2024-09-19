@@ -21,8 +21,8 @@ to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
         <geometry>
           <mesh optimization="convex_decomposition">
             <convex_decomposition>
-            <max_convex_hulls>32</max_convex_hulls>
-            <voxel_resolution>800000</voxel_resolution>
+              <max_convex_hulls>32</max_convex_hulls>
+              <voxel_resolution>800000</voxel_resolution>
             </convex_decomposition>
             <uri>meshes/model.obj</uri>
           </mesh>
