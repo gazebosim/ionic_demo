@@ -381,19 +381,27 @@
       <uri>interior</uri>
     </include>
 
-    <!-- breakfast menus - 1 original, 1 convex decomposed-->
+    <!-- breakfast menus - 1 original, 1 convex decomposed, and
+         1 convex decomposed (low res) -->
+    <include>
+      <static>false</static>
+      <name>Breakfast menu</name>
+      <pose>-2.14 2.623 0.751 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/breakfast_menu</uri>
+    </include>
+
     <include>
       <static>false</static>
       <name>Breakfast menu decomposed</name>
-      <pose>-1.7152 2.623 0.751 0 0 0.0</pose>
+      <pose>-1.73 2.623 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_decomposed</uri>
     </include>
 
     <include>
       <static>false</static>
-      <name>Breakfast menu</name>
-      <pose>-2.1686 2.623 0.751 0 0 0.0</pose>
-      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/breakfast_menu</uri>
+      <name>Breakfast menu decomposed low res</name>
+      <pose>-1.73 2.85 0.751 0 0 0.0</pose>
+      <uri>breakfast_menu_decomposed_low</uri>
     </include>
 
   </world>
