@@ -18,7 +18,7 @@ sudo apt install ros-rolling-ros-gz
 
 # Running the navigation demo
 
-![](../media/ionic-nav-demo.gif)
+![](media/ionic-nav-demo-faster-smaller.gif)
 
 This demo requires at least [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/index.html).
 
@@ -43,7 +43,13 @@ source ~/ionic_ws/install/setup.bash
 ros2 launch ionic_demo ionic_navigation_demo_launch.py headless:=0
 ```
 
-On rviz, initialize the position at the origin towards the right of the map and start using the navigation commands provided on the rviz panels.
+On rviz, initialize the position at the origin towards the right of the map, using the `2D Pose Estimate button`.
+
+![](media/rviz-estimate.png)
+
+Navigation commands can now be sent via the `Nav2 Goal` button.
+
+![](media/rviz-navigate.png)
 
 # Troubleshooting
 
