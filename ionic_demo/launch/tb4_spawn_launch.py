@@ -49,7 +49,7 @@ def generate_launch_description():
 
     # Launch configuration variables specific to simulation
     robot_name = 'ionic_tb4'
-    robot_sdf = xacro.process(desc_dir / 'urdf' / 'standard' / 'turtlebot4.urdf.xacro')
+    robot_sdf = xacro.process(ionic_demo_dir / 'models' / 'ionic_tb4.urdf.xacro')
 
     remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
 
