@@ -380,5 +380,157 @@
       <name>Interior</name>
       <uri>interior</uri>
     </include>
+
+    <!--
+        bullet-featherstone auto-deactivation demo.
+
+        Run the demo with bullet-featherstone physics plugin
+
+        Detach joints to make the steak_set meshes dynamic:
+
+            gz topic -t "/steak/detach" -m gz.msgs.Empty -p "unused: true"
+
+        The steak set meshes should drop onto the table, which impacts physics
+        and causes RTF to drop (change max_step_size to 0.001 to make the
+        effect more evidient). After the collisions settle, the RTF should
+        come back up.
+    -->
+
+    <include>
+      <static>false</static>
+      <name>steak_set</name>
+      <pose>7.35 0.05 0.864 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>Interior</child_model>
+        <child_link>base_link</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_2</name>
+      <pose>7.85 0.05 0.864 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_3</name>
+      <pose>8.35 0.05 0.864 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_2</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+
+    <include>
+      <static>false</static>
+      <name>steak_set_4</name>
+      <pose>8.85 0.05 0.864 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_3</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_5</name>
+      <pose>9.35 0.05 0.864 0 0 0.0</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_4</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_6</name>
+      <pose>7.85 0.40 0.864 0 0 3.14</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_5</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_7</name>
+      <pose>8.35 0.40 0.864 0 0 3.14</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_6</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_8</name>
+      <pose>8.85 0.4 0.862 0 0 3.14</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_7</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
+    <include>
+      <static>false</static>
+      <name>steak_set_9</name>
+      <pose>9.35 0.4 0.862 0 0 3.14</pose>
+      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>steak_set_8</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
+    </include>
+
   </world>
 </sdf>
