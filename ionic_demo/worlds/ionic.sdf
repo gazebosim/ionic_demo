@@ -387,7 +387,7 @@
       <static>false</static>
       <name>Breakfast menu</name>
       <pose>-2.14 2.623 0.751 0 0 0.0</pose>
-      <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/breakfast_menu</uri>
+      <uri>breakfast_menu_original</uri>
     </include>
 
     <include>
