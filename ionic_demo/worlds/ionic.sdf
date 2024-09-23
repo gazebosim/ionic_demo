@@ -379,6 +379,14 @@
     <include>
       <name>Interior</name>
       <uri>interior</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>base_link</parent_link>
+        <child_model>steak_set</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/steak/detach</detach_topic>
+        <attach_topic>/steak/attach</attach_topic>
+      </plugin>
     </include>
 
     <!--
@@ -404,8 +412,8 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>Interior</child_model>
-        <child_link>base_link</child_link>
+        <child_model>steak_set_2</child_model>
+        <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
       </plugin>
@@ -419,7 +427,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set</child_model>
+        <child_model>steak_set_3</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -434,7 +442,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set_2</child_model>
+        <child_model>steak_set_4</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -450,7 +458,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set_3</child_model>
+        <child_model>steak_set_5</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -465,7 +473,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set_4</child_model>
+        <child_model>steak_set_6</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -480,7 +488,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set_5</child_model>
+        <child_model>steak_set_7</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -495,7 +503,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set_6</child_model>
+        <child_model>steak_set_8</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -510,7 +518,7 @@
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
-        <child_model>steak_set_7</child_model>
+        <child_model>steak_set_9</child_model>
         <child_link>link_0</child_link>
         <detach_topic>/steak/detach</detach_topic>
         <attach_topic>/steak/attach</attach_topic>
@@ -522,14 +530,6 @@
       <name>steak_set_9</name>
       <pose>9.35 0.4 0.862 0 0 3.14</pose>
       <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
-      <plugin filename="gz-sim-detachable-joint-system"
-          name="gz::sim::systems::DetachableJoint">
-        <parent_link>link_0</parent_link>
-        <child_model>steak_set_8</child_model>
-        <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
-      </plugin>
     </include>
 
     <!-- breakfast menus - 1 original, 1 convex decomposed, and
@@ -554,5 +554,6 @@
       <pose>-1.73 2.85 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_convex_hull</uri>
     </include>
+
   </world>
 </sdf>
