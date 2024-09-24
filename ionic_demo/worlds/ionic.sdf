@@ -579,7 +579,7 @@
     <include>
       <static>false</static>
       <name>breakfast_menu_convex_hull</name>
-      <pose>-1.73 2.85 0.758 0 0 0.0</pose>
+      <pose>-1.73 2.85 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_convex_hull</uri>
     </include>
   </world>
