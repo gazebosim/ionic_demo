@@ -384,9 +384,10 @@
         <parent_link>base_link</parent_link>
         <child_model>steak_set</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
+
     </include>
 
     <!--
@@ -394,11 +395,11 @@
 
         Run the demo with bullet-featherstone physics plugin
 
-        Detach joints to make the steak_set meshes dynamic:
+        Detach joints to make the breakfast_menu and steak_set meshes dynamic:
 
-            gz topic -t "/steak/detach" -m gz.msgs.Empty -p "unused: true"
+            gz topic -t "/food/detach" -m gz.msgs.Empty -p "unused: true"
 
-        The steak set meshes should drop onto the table, which impacts physics
+        These models will become dynamic, which impacts physics
         and causes RTF to drop (change max_step_size to 0.001 to make the
         effect more evidient). After the collisions settle, the RTF should
         come back up.
@@ -414,8 +415,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_2</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -429,8 +430,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_3</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -444,8 +445,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_4</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -460,8 +461,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_5</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -475,8 +476,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_6</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -490,8 +491,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_7</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -505,8 +506,8 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_8</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
     </include>
 
@@ -520,9 +521,10 @@
         <parent_link>link_0</parent_link>
         <child_model>steak_set_9</child_model>
         <child_link>link_0</child_link>
-        <detach_topic>/steak/detach</detach_topic>
-        <attach_topic>/steak/attach</attach_topic>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
       </plugin>
+
     </include>
 
     <include>
@@ -530,30 +532,56 @@
       <name>steak_set_9</name>
       <pose>9.35 0.4 0.862 0 0 3.14</pose>
       <uri>https://fuel.gazebosim.org/1.0/googleresearch/models/steak_set</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>breakfast_menu</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
+      </plugin>
     </include>
 
     <!-- breakfast menus - 1 original, 1 convex decomposed, and
          1 convex decomposed (low res) -->
+
     <include>
       <static>false</static>
-      <name>Breakfast menu</name>
+      <name>breakfast_menu</name>
       <pose>-2.14 2.623 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_original</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>breakfast_menu_decomposed</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
+      </plugin>
+
     </include>
 
     <include>
       <static>false</static>
-      <name>Breakfast menu decomposed</name>
+      <name>breakfast_menu_decomposed</name>
       <pose>-1.73 2.623 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_decomposed</uri>
+      <plugin filename="gz-sim-detachable-joint-system"
+          name="gz::sim::systems::DetachableJoint">
+        <parent_link>link_0</parent_link>
+        <child_model>breakfast_menu_convex_hull</child_model>
+        <child_link>link_0</child_link>
+        <detach_topic>/food/detach</detach_topic>
+        <attach_topic>/food/attach</attach_topic>
+      </plugin>
     </include>
 
     <include>
       <static>false</static>
-      <name>Breakfast menu convex hull</name>
-      <pose>-1.73 2.85 0.751 0 0 0.0</pose>
+      <name>breakfast_menu_convex_hull</name>
+      <pose>-1.73 2.85 0.758 0 0 0.0</pose>
       <uri>breakfast_menu_convex_hull</uri>
     </include>
-
   </world>
 </sdf>
+
