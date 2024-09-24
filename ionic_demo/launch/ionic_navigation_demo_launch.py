@@ -33,7 +33,7 @@ def generate_launch_description():
     launch_dir = bringup_dir / 'launch'
     headless = LaunchConfiguration('headless')
     declare_headless_cmd = DeclareLaunchArgument(
-        'headless', default_value='True', description='Whether to execute gzclient)'
+        'headless', default_value='True', description='Whether to execute gzclient'
     )
 
     return LaunchDescription(

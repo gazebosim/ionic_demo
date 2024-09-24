@@ -1,0 +1,6 @@
+<launch>
+  <gz_server
+    world_sdf_file="$(find-pkg-share ionic_demo)/worlds/ionic.sdf"
+    use_composition="True"
+  />
+</launch>

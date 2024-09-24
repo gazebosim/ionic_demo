@@ -1,0 +1,13 @@
+<launch>
+  <arg name="headless" default="True" description="Whether to execute gzclient" />
+
+  <include file="$(find-pkg-share ionic_demo)/launch/tb4_spawn_launch.xml" />
+  <include file="$(find-pkg-share ionic_demo)/launch/world_launch.xml" />
+
+  <executable cmd="gz sim -g -v4" output="screen" unless="$(var headless)" />
+
+  <include file="$(find-pkg-share nav2_bringup)/launch/rviz_launch.py">
+    <arg name="use_sim_time" value="True" />
+    <arg name="rviz_config" value="$(find-pkg-share nav2_bringup)/rviz/nav2_default_view.rviz" />
+  </include>
+</launch>

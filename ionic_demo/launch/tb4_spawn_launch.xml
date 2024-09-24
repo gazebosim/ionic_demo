@@ -1,0 +1,38 @@
+<launch>
+  <include file="$(find-pkg-share nav2_bringup)/launch/bringup_launch.py">
+    <arg name="map" value="$(find-pkg-share ionic_demo)/maps/ionic_demo.yaml" />
+    <arg name="use_sim_time" value="True" />
+    <arg name="use_composition" value="True" />
+  </include>
+
+  <let name="robot_name" value="ionic_tb4" />
+  <let name="robot_sdf"
+    value="$(command '$(find-exec xacro) $(find-pkg-share ionic_demo)/models/ionic_tb4.urdf.xacro')" />
+
+  <node pkg="robot_state_publisher" exec="robot_state_publisher"
+    name="robot_state_publisher" output="screen">
+    <param name="use_sim_time" value="True" />
+    <param name="robot_description" value="$(var robot_sdf)" />
+    <remap from="/tf" to="tf" />
+    <remap from="/tf_static" to="tf_static" />
+  </node>
+
+  <ros_gz_bridge
+    bridge_name="tb4_bridge"
+    config_file="$(find-pkg-share nav2_minimal_tb4_sim)/configs/tb4_bridge.yaml"
+    use_composition='True'>
+  </ros_gz_bridge>
+  <ros_gz_bridge
+    bridge_name="tb4_camera_bridge"
+    config_file="$(find-pkg-share ionic_demo)/configs/tb4_camera_bridge.yaml"
+    use_composition='True'>
+  </ros_gz_bridge>
+
+  <node pkg="ros_gz_sim" exec="create" output="screen">
+    <param name="entity" value="$(var robot_name)" />
+    <param name="string" value="$(var robot_sdf)" />
+  </node>
+
+  <set_env name="GZ_SIM_RESOURCE_PATH" value="$(env GZ_SIM_RESOURCE_PATH):$(find-pkg-share nav2_minimal_tb4_description)/../" />
+
+</launch>
