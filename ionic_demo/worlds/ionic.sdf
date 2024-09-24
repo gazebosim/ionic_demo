@@ -2,6 +2,10 @@
 
 <sdf version="1.10">
   <world name="default">
+    <physics name="fast" type="ignored">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
     <gui fullscreen="0">
       <plugin filename="MinimalScene" name="3D View">
         <gz-gui>
@@ -27,12 +31,12 @@
         </gz-gui>
         <enabled>true</enabled>
         <highQuality>true</highQuality>
-        <resolution>16 16 16</resolution>
+        <resolution>64 32 16</resolution>
         <octantCount>1 1 1</octantCount>
         <conserveMemory>true</conserveMemory>
         <thinWallCounter>1.0</thinWallCounter>
         <anisotropic>true</anisotropic>
-        <bounceCount>6</bounceCount>
+        <bounceCount>9</bounceCount>
       </plugin>
       <plugin filename="EntityContextMenuPlugin" name="Entity context menu">
         <gz-gui>
@@ -302,20 +306,20 @@
     </light>-->
 
     <light type="spot" name="spot_grid">
-      <pose>-1 0.5 2.75 0 0 0</pose>
+      <pose>-3 0.5 2.7 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse>
       <specular>1 1 1 1</specular>
-      <intensity>0.75</intensity>
+      <intensity>1</intensity>
       <attenuation>
         <range>12</range>
-        <linear>0.01</linear>
+        <linear>0.3</linear>
         <constant>0.2</constant>
         <quadratic>0.0</quadratic>
       </attenuation>
       <direction>0 0 -1</direction>
       <spot>
         <inner_angle>0</inner_angle>
-        <outer_angle>3</outer_angle>
+        <outer_angle>2.5</outer_angle>
         <falloff>1</falloff>
       </spot>
       <cast_shadows>true</cast_shadows>
@@ -325,17 +329,17 @@
       <pose>4 1.8 2.5 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse>
       <specular>1 1 1 1</specular>
-      <intensity>0.75</intensity>
+      <intensity>1</intensity>
       <attenuation>
         <range>12</range>
-        <linear>0.01</linear>
+        <linear>0.3</linear>
         <constant>0.2</constant>
         <quadratic>0.0</quadratic>
       </attenuation>
       <direction>0 0 -1</direction>
       <spot>
         <inner_angle>0</inner_angle>
-        <outer_angle>3</outer_angle>
+        <outer_angle>2.5</outer_angle>
         <falloff>1</falloff>
       </spot>
       <cast_shadows>true</cast_shadows>
@@ -345,20 +349,48 @@
       <pose>9 1 2.75 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse>
       <specular>1 1 1 1</specular>
-      <intensity>0.75</intensity>
+      <intensity>1</intensity>
       <attenuation>
         <range>12</range>
-        <linear>0.01</linear>
+        <linear>0.3</linear>
         <constant>0.2</constant>
         <quadratic>0.0</quadratic>
       </attenuation>
       <direction>0 0 -1</direction>
       <spot>
         <inner_angle>0</inner_angle>
-        <outer_angle>3</outer_angle>
+        <outer_angle>2.5</outer_angle>
         <falloff>1</falloff>
       </spot>
       <cast_shadows>true</cast_shadows>
+    </light>
+    
+    <light type="point" name="point_column_01">
+      <pose>0 1.75 1.75 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+      <intensity>1</intensity>
+      <attenuation>
+        <range>20</range>
+        <linear>0.2</linear>
+        <constant>0.8</constant>
+        <quadratic>0.5</quadratic>
+      </attenuation>
+      <cast_shadows>true</cast_shadows>
+    </light>
+    
+    <light type="point" name="point_column_02">
+      <pose>7.4 3.4 1.71 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+      <intensity>1</intensity>
+      <attenuation>
+        <range>20</range>
+        <linear>0.2</linear>
+        <constant>0.8</constant>
+        <quadratic>0.5</quadratic>
+      </attenuation>
+      <cast_shadows>false</cast_shadows>
     </light>
 
     <!--<light type="point" name="point">
@@ -579,9 +611,8 @@
     <include>
       <static>false</static>
       <name>breakfast_menu_convex_hull</name>
-      <pose>-1.73 2.85 0.758 0 0 0.0</pose>
+      <pose>-1.73 2.85 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_convex_hull</uri>
     </include>
   </world>
 </sdf>
-
