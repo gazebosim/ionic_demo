@@ -18,8 +18,8 @@
         <scene>scene</scene>
         <sky></sky>
         <camera_clip>
-          <near>0.25</near>
-          <far>50000</far>
+          <near>0.01</near>
+          <far>500</far>
         </camera_clip>
         <camera_pose>-5.4 -1.15 1.75 0.0 0.11 0.73</camera_pose>
       </plugin>
