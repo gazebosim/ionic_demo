@@ -36,7 +36,7 @@ export GZ_SIM_SYSTEM_PLUGIN_PATH=`pwd`/build
 
 Then run the demo world:
 
-    gz sim -v 3 priority_printer_plugin.sdf -r
+    gz sim -v 3 ft_sensor_determinism.sdf -r
 
 The data accessed via the ECM should never be out of date, but data from the
 gz-transport topic may be outdated depending on the computing load on your

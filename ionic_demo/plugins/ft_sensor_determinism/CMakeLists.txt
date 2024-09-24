@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)
 
 find_package(gz-cmake4 REQUIRED)
 
-project(Priority_printer)
+project(ft_sensor_determinism)
 
 gz_find_package(gz-plugin3 REQUIRED COMPONENTS register)
 set(GZ_PLUGIN_VER ${gz-plugin3_VERSION_MAJOR})
