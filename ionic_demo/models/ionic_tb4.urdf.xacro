@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<robot name="ionic_tb4" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find nav2_minimal_tb4_description)/urdf/standard/turtlebot4.urdf.xacro" />
+  <joint name="extend_tower" type="fixed">
+    <parent link="tower_sensor_plate"/>
+    <child link="tray"/>
+    <origin xyz="0 0 0.5"/>
+  </joint>
+  <link name="tray">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.137"/>
+      </geometry>
+      <material name="wood">
+        <color rgba="0.631373 0.4 0.184314 1.0"/>
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 -0.25"/>
+      <geometry>
+        <cylinder length="0.5" radius="0.02"/>
+      </geometry>
+      <material name="dark_grey">
+        <color rgba="0.1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.01" radius="0.137"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="0.332"/>
+      <inertia ixx="0.00092982299" ixy="0.0" ixz="0.0" iyy="0.00083033498" iyz="0.0" izz="0.00175985947"/>
+    </inertial>
+  </link>
+</robot>
