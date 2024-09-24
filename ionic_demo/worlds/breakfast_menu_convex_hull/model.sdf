@@ -10,6 +10,7 @@ to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 <sdf version="1.11">
   <model name="breakfast_menu_convex_hull">
     <link name="link_0">
+      <inertial auto="true" />
       <visual name="visual">
         <geometry>
           <mesh>
@@ -18,6 +19,7 @@ to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
         </geometry>
       </visual>
       <collision name="collision_0">
+        <density>1000</density>
         <geometry>
           <mesh optimization="convex_hull">
             <uri>meshes/model.obj</uri>

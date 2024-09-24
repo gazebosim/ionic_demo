@@ -1579,7 +1579,6 @@
           </plane>
         </geometry>
       </collision>
-
-        </link>
+      </link>
     </model>
 </sdf>
