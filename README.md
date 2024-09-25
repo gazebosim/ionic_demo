@@ -1,7 +1,7 @@
 # ionic_demo
 Ionic demo world and resources
 
-![image](https://github.com/user-attachments/assets/4b6da5bc-d2ce-4b5f-ac97-f6f238200123)
+![](media/ionic-demo-world.png)
 
 Usage:
 
@@ -52,6 +52,11 @@ Navigation commands can now be sent via the `Nav2 Goal` button.
 ![](media/rviz-navigate.png)
 
 # Troubleshooting
+
+* If the demo world is laggy, try disabling global illumination by editing the
+`ionic_demo/worlds/ionic.sdf` world file and setting the
+`GlobalIllumincationVct` plugin's [<enabled>](https://github.com/gazebosim/ionic_demo/blob/2350def5a74f3d75e131711fedd217d57527a64f/ionic_demo/worlds/ionic.sdf#L32)
+property to `false`.
 
 * If there are communication/middleware related issues while running the demos, we recommend trying again [using a different RMW implementation](https://docs.ros.org/en/jazzy/How-To-Guides/Working-with-multiple-RMW-implementations.html#specifying-rmw-implementations), for example `rmw_cyclonedds_cpp`.
 
