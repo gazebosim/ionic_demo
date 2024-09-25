@@ -291,20 +291,6 @@
       <sky></sky>
     </scene>
 
-    <!--<light type="directional" name="directional">
-      <pose>0 0 4 0 0 0</pose>
-      <intensity>3</intensity>
-      <diffuse>1 0.98 0.98 1</diffuse>
-      <specular>.1 .1 .1 1</specular>
-      <attenuation>
-        <range>20</range>
-        <linear>0.2</linear>
-        <constant>0.8</constant>
-        <quadratic>0.01</quadratic>
-      </attenuation>
-      <cast_shadows>true</cast_shadows>
-    </light>-->
-
     <light type="spot" name="spot_grid">
       <pose>-3 0.5 2.7 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse>
@@ -364,34 +350,6 @@
       </spot>
       <cast_shadows>true</cast_shadows>
     </light>
-    
-    <light type="point" name="point_column_01">
-      <pose>0 1.75 1.75 0 0 0</pose>
-      <diffuse>1 1 1 1</diffuse>
-      <specular>1 1 1 1</specular>
-      <intensity>1</intensity>
-      <attenuation>
-        <range>20</range>
-        <linear>0.2</linear>
-        <constant>0.8</constant>
-        <quadratic>0.5</quadratic>
-      </attenuation>
-      <cast_shadows>true</cast_shadows>
-    </light>
-    
-    <light type="point" name="point_column_02">
-      <pose>7.4 3.4 1.71 0 0 0</pose>
-      <diffuse>1 1 1 1</diffuse>
-      <specular>1 1 1 1</specular>
-      <intensity>1</intensity>
-      <attenuation>
-        <range>20</range>
-        <linear>0.2</linear>
-        <constant>0.8</constant>
-        <quadratic>0.5</quadratic>
-      </attenuation>
-      <cast_shadows>false</cast_shadows>
-    </light>
 
     <light type="point" name="point_column_01">
       <pose>0 1.75 1.75 0 0 0</pose>
@@ -421,20 +379,33 @@
       <cast_shadows>false</cast_shadows>
     </light>
 
-    <!--<light type="point" name="point">
-      <pose>-1 0.5 4 0 0 0</pose>
+    <light type="point" name="point_column_01">
+      <pose>0 1.75 1.75 0 0 0</pose>
       <diffuse>1 1 1 1</diffuse>
       <specular>1 1 1 1</specular>
-      <intensity>1.5</intensity>
+      <intensity>1</intensity>
       <attenuation>
         <range>20</range>
         <linear>0.2</linear>
         <constant>0.8</constant>
-        <quadratic>0.01</quadratic>
+        <quadratic>0.5</quadratic>
       </attenuation>
-      <cast_shadows>true</cast_shadows>
-    </light>-->
+      <cast_shadows>false</cast_shadows>
+    </light>
 
+    <light type="point" name="point_column_02">
+      <pose>7.4 3.4 1.71 0 0 0</pose>
+      <diffuse>1 1 1 1</diffuse>
+      <specular>1 1 1 1</specular>
+      <intensity>1</intensity>
+      <attenuation>
+        <range>20</range>
+        <linear>0.2</linear>
+        <constant>0.8</constant>
+        <quadratic>0.5</quadratic>
+      </attenuation>
+      <cast_shadows>false</cast_shadows>
+    </light>
 
     <include>
       <name>Interior</name>
