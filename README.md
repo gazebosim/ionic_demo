@@ -11,11 +11,6 @@ cd ionic_demo/ionic_demo/worlds
 gz sim -v 4 ionic.sdf
 ```
 
-In Harmonic:
-```
-sudo apt install ros-rolling-ros-gz
-```
-
 # Running the navigation demo
 
 ![](media/ionic-nav-demo-faster-smaller.gif)
