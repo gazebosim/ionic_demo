@@ -133,7 +133,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(str(launch_dir / 'rviz_launch.py')),
         launch_arguments={
             'use_sim_time': 'True',
-            'rviz_config': str(ionic_demo_dir / 'rviz' / 'nav2_default_view.rviz'),
+            'rviz_config': str(ionic_demo_dir / 'configs' / 'nav2.rviz'),
             'namespace': namespace,
             'use_namespace': use_namespace,
         }.items(),
