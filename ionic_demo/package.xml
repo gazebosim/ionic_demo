@@ -9,7 +9,15 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <exec_depend>fleet_adapter_nav2</exec_depend>
+  <exec_depend>ionic_demo_building_maps</exec_depend>
+  <exec_depend>ionic_demos_rmf</exec_depend>
+  <exec_depend>moveit</exec_depend>
+  <exec_depend>panda</exec_depend>
   <exec_depend>nav2_bringup</exec_depend>
+  <exec_depend>rmf_demos</exec_depend>
+  <exec_depend>rmf_demos_assets</exec_depend>
+  <exec_depend>rmf_robot_sim_gz_plugins</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

@@ -22,9 +22,12 @@ from ros_gz_bridge.actions import RosGzBridge
 from launch import LaunchDescription
 from launch.actions import (
     AppendEnvironmentVariable,
+    DeclareLaunchArgument,
     IncludeLaunchDescription,
 )
+from launch.conditions import IfCondition, UnlessCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
@@ -33,6 +36,15 @@ def generate_launch_description():
     bringup_dir = Path(get_package_share_directory('nav2_bringup'))
     launch_dir = bringup_dir / 'launch'
     map_yaml_file = str(ionic_demo_dir / 'maps' / 'ionic_demo.yaml')
+    nav2_params_file = str(ionic_demo_dir / 'params' / 'nav2_params.yaml')
+    namespace = LaunchConfiguration('namespace')
+    use_namespace = LaunchConfiguration('use_namespace')
+    declare_namespace_cmd = DeclareLaunchArgument(
+        'namespace', default_value='', description='Namespace to use'
+    )
+    use_namespace_cmd = DeclareLaunchArgument(
+        'use_namespace', default_value='False', description='Whether to use a namespace'
+    )
 
     bringup_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(str(launch_dir / 'bringup_launch.py')),
@@ -41,6 +53,19 @@ def generate_launch_description():
             'use_sim_time': 'True',
             'use_composition': 'True',
         }.items(),
+        condition=UnlessCondition(use_namespace),
+    )
+    bringup_cmd_namespaced = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(str(launch_dir / 'bringup_launch.py')),
+        launch_arguments={
+            'map': map_yaml_file,
+            'use_sim_time': 'True',
+            'use_composition': 'True',
+            'namespace': namespace,
+            'use_namespace': use_namespace,
+            'params_file': nav2_params_file,
+        }.items(),
+        condition=IfCondition(use_namespace),
     )
     # This checks that tb4 exists needed for the URDF / simulation files.
     # If not using TB4, its safe to remove.
@@ -48,7 +73,7 @@ def generate_launch_description():
     desc_dir = Path(get_package_share_directory('nav2_minimal_tb4_description'))
 
     # Launch configuration variables specific to simulation
-    robot_name = 'ionic_tb4'
+    robot_name = 'tb4'
     robot_sdf = xacro.process(ionic_demo_dir / 'models' / 'ionic_tb4.urdf.xacro')
 
     remappings = [('/tf', 'tf'), ('/tf_static', 'tf_static')]
@@ -57,6 +82,7 @@ def generate_launch_description():
         package='robot_state_publisher',
         executable='robot_state_publisher',
         name='robot_state_publisher',
+        namespace=namespace,
         output='screen',
         parameters=[
             {
@@ -70,12 +96,14 @@ def generate_launch_description():
     bridge = RosGzBridge(
         bridge_name='tb4_bridge',
         config_file=str(sim_dir / 'configs' / 'tb4_bridge.yaml'),
-        use_composition='True',
+        namespace=namespace,
+        use_composition='False',
     )
     camera_bridge = RosGzBridge(
         bridge_name='tb4_camera_bridge',
         config_file=str(ionic_demo_dir / 'configs' / 'tb4_camera_bridge.yaml'),
-        use_composition='True',
+        use_composition='False',
+        namespace=namespace,
     )
 
     spawn_model = Node(
@@ -84,7 +112,7 @@ def generate_launch_description():
         output='screen',
         parameters=[
             {
-                'entity': robot_name,
+                'name': robot_name,
                 'string': robot_sdf,
             }
         ],
@@ -94,9 +122,29 @@ def generate_launch_description():
         'GZ_SIM_RESOURCE_PATH', str(desc_dir.parent.resolve())
     )
 
+    spawn_rviz = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(str(launch_dir / 'rviz_launch.py')),
+        launch_arguments={
+            'use_sim_time': 'True',
+        }.items(),
+        condition=UnlessCondition(use_namespace)
+    )
+    spawn_rviz_namespaced = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(str(launch_dir / 'rviz_launch.py')),
+        launch_arguments={
+            'use_sim_time': 'True',
+            'rviz_config': str(ionic_demo_dir / 'rviz' / 'nav2_default_view.rviz'),
+            'namespace': namespace,
+            'use_namespace': use_namespace,
+        }.items(),
+        condition=IfCondition(use_namespace)
+    )
+
     # Create the launch description and populate
     ld = LaunchDescription()
 
+    ld.add_action(declare_namespace_cmd)
+    ld.add_action(use_namespace_cmd)
     ld.add_action(bridge)
     ld.add_action(camera_bridge)
 
@@ -110,5 +158,8 @@ def generate_launch_description():
     # Add the actions to launch all of the navigation nodes
     ld.add_action(start_robot_state_publisher_cmd)
     ld.add_action(bringup_cmd)
+    ld.add_action(bringup_cmd_namespaced)
+    ld.add_action(spawn_rviz)
+    ld.add_action(spawn_rviz_namespaced)
 
     return ld

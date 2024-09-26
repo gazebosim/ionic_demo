@@ -77,7 +77,7 @@ repositories:
     version: rolling
   ionic_demo:
     type: git
-    url: https://github.com/gazebosim/ionic_demo.git
+    url: https://github.com/xiyuoh/ionic_demo.git
     version: main
   navigation2:
     type: git
@@ -85,12 +85,12 @@ repositories:
     version: main
   nav2_minimal_turtlebot_simulation:
     type: git
-    url: https://github.com/ros-navigation/nav2_minimal_turtlebot_simulation
-    version: main
+    url: https://github.com/luca-della-vedova/nav2_minimal_turtlebot_simulation
+    version: luca/namespaced_simulation
   panda_ign_moveit2:
     type: git
-    url: https://github.com/azeey/panda_ign_moveit2/
-    version: ionic_demo
+    url: https://github.com/luca-della-vedova/panda_ign_moveit2/
+    version: luca/panda_ionic_demo
   ros_gz:
     type: git
     url: https://github.com/gazebosim/ros_gz
@@ -99,3 +99,71 @@ repositories:
     type: git
     url: https://github.com/ros/sdformat_urdf
     version: rolling
+  demonstrations/rmf_demos:
+    type: git
+    url: https://github.com/open-rmf/rmf_demos.git
+    version: main
+  rmf/ament_cmake_catch2:
+    type: git
+    url: https://github.com/open-rmf/ament_cmake_catch2.git
+    version: main
+  rmf/rmf_api_msgs:
+    type: git
+    url: https://github.com/open-rmf/rmf_api_msgs.git
+    version: main
+  rmf/rmf_battery:
+    type: git
+    url: https://github.com/open-rmf/rmf_battery.git
+    version: main
+  rmf/rmf_building_map_msgs:
+    type: git
+    url: https://github.com/open-rmf/rmf_building_map_msgs.git
+    version: main
+  rmf/rmf_internal_msgs:
+    type: git
+    url: https://github.com/open-rmf/rmf_internal_msgs.git
+    version: main
+  rmf/rmf_ros2:
+    type: git
+    url: https://github.com/open-rmf/rmf_ros2.git
+    version: main
+  rmf/rmf_simulation:
+    type: git
+    url: https://github.com/open-rmf/rmf_simulation.git
+    version: main
+  rmf/rmf_task:
+    type: git
+    url: https://github.com/open-rmf/rmf_task.git
+    version: main
+  rmf/rmf_traffic:
+    type: git
+    url: https://github.com/open-rmf/rmf_traffic.git
+    version: main
+  rmf/rmf_traffic_editor:
+    type: git
+    url: https://github.com/open-rmf/rmf_traffic_editor.git
+    version: main
+  rmf/rmf_utils:
+    type: git
+    url: https://github.com/open-rmf/rmf_utils.git
+    version: main
+  rmf/rmf_visualization:
+    type: git
+    url: https://github.com/open-rmf/rmf_visualization.git
+    version: main
+  rmf/rmf_visualization_msgs:
+    type: git
+    url: https://github.com/open-rmf/rmf_visualization_msgs.git
+    version: main
+  thirdparty/menge_vendor:
+    type: git
+    url: https://github.com/open-rmf/menge_vendor.git
+    version: master
+  thirdparty/nlohmann_json_schema_validator_vendor:
+    type: git
+    url: https://github.com/open-rmf/nlohmann_json_schema_validator_vendor.git
+    version: main
+  thirdparty/pybind11_json_vendor:
+    type: git
+    url: https://github.com/open-rmf/pybind11_json_vendor.git
+    version: main

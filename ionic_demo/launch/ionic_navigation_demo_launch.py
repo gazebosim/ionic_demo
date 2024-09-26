@@ -15,6 +15,7 @@
 from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
+from launch_ros.actions import Node
 
 from launch import LaunchDescription
 from launch.actions import (
@@ -22,18 +23,17 @@ from launch.actions import (
     ExecuteProcess,
     IncludeLaunchDescription,
 )
-from launch.conditions import UnlessCondition
+from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_xml.launch_description_sources import XMLLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
 
 def generate_launch_description():
-    bringup_dir = Path(get_package_share_directory('nav2_bringup'))
-    ionic_demo_dir = Path(get_package_share_directory('ionic_demo'))
-    launch_dir = bringup_dir / 'launch'
-    headless = LaunchConfiguration('headless')
+    launch_dir = Path(get_package_share_directory('ionic_demo')) / 'launch'
+    run_gazebo = LaunchConfiguration('run_gazebo')
     declare_headless_cmd = DeclareLaunchArgument(
-        'headless', default_value='True', description='Whether to execute gzclient'
+        'run_gazebo', default_value='True', description='Whether to run gazebo'
     )
 
     return LaunchDescription(
@@ -41,25 +41,19 @@ def generate_launch_description():
             declare_headless_cmd,
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    str(ionic_demo_dir / 'launch' / 'tb4_spawn_launch.py')
+                    str(launch_dir / 'world_launch.py')
                 ),
-            ),
-            IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(
-                    str(ionic_demo_dir / 'launch' / 'world_launch.py')
-                ),
+                condition=IfCondition(run_gazebo),
             ),
             ExecuteProcess(
                 cmd=['gz', 'sim', '-g', '-v4'],
                 output='screen',
-                condition=UnlessCondition(headless),
+                condition=IfCondition(run_gazebo),
             ),
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(str(launch_dir / 'rviz_launch.py')),
-                launch_arguments={
-                    'use_sim_time': 'True',
-                    'rviz_config': str(ionic_demo_dir / 'configs' / 'nav2.rviz'),
-                }.items(),
+                PythonLaunchDescriptionSource(
+                    str(launch_dir / 'tb4_spawn_launch.py')
+                ),
             ),
         ]
     )

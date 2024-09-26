@@ -4,7 +4,7 @@
   <joint name="extend_tower" type="fixed">
     <parent link="tower_sensor_plate"/>
     <child link="tray"/>
-    <origin xyz="0 0 0.5"/>
+    <origin xyz="0.03 0 0.5"/>
   </joint>
   <link name="tray">
     <visual>
