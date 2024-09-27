@@ -552,7 +552,7 @@
       <static>false</static>
       <name>breakfast_menu</name>
       <pose>-2.14 2.623 0.751 0 0 0.0</pose>
-      <uri>breakfast_menu_original</uri>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Breakfast Menu Original</uri>
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
@@ -568,7 +568,7 @@
       <static>false</static>
       <name>breakfast_menu_decomposed</name>
       <pose>-1.73 2.623 0.751 0 0 0.0</pose>
-      <uri>breakfast_menu_decomposed</uri>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Breakfast Menu Decomposed</uri>
       <plugin filename="gz-sim-detachable-joint-system"
           name="gz::sim::systems::DetachableJoint">
         <parent_link>link_0</parent_link>
@@ -581,10 +581,17 @@
 
     <include>
       <static>false</static>
-      <name>breakfast_menu_convex_hull</name>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Breakfast Menu Convex Hull</uri>
       <pose>-1.73 2.85 0.751 0 0 0.0</pose>
       <uri>breakfast_menu_convex_hull</uri>
     </include>
+
+    <include>
+      <name>Ionic Mascot</name>
+      <pose>3.67 0.35 1.18 0 0 3.14</pose>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Ionic Mascot</uri>
+    </include>
+
   </world>
 </sdf>
 
