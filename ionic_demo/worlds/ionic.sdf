@@ -379,34 +379,6 @@
       <cast_shadows>false</cast_shadows>
     </light>
 
-    <light type="point" name="point_column_01">
-      <pose>0 1.75 1.75 0 0 0</pose>
-      <diffuse>1 1 1 1</diffuse>
-      <specular>1 1 1 1</specular>
-      <intensity>1</intensity>
-      <attenuation>
-        <range>20</range>
-        <linear>0.2</linear>
-        <constant>0.8</constant>
-        <quadratic>0.5</quadratic>
-      </attenuation>
-      <cast_shadows>false</cast_shadows>
-    </light>
-
-    <light type="point" name="point_column_02">
-      <pose>7.4 3.4 1.71 0 0 0</pose>
-      <diffuse>1 1 1 1</diffuse>
-      <specular>1 1 1 1</specular>
-      <intensity>1</intensity>
-      <attenuation>
-        <range>20</range>
-        <linear>0.2</linear>
-        <constant>0.8</constant>
-        <quadratic>0.5</quadratic>
-      </attenuation>
-      <cast_shadows>false</cast_shadows>
-    </light>
-
     <include>
       <name>Interior</name>
       <uri>interior</uri>
