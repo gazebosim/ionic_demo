@@ -64,7 +64,11 @@ docker run --network host -it --rm \
   ghcr.io/gazebosim/ionic_demo_rmf_dashboard:main
 ```
 
-Start the API server docker image, make sure to note the `ROS_DOMAIN_ID` and `RMW_IMPLEMENTATION`. This starts the API server on `localhost:8000`. Example values: `ROS_DOMAIN_ID=1` and `RMW_IMPLEMENTATION=rmw_fastrtps_cpp`
+Start the API server docker image, make sure to note the
+[`ROS_DOMAIN_ID`](https://docs.ros.org/en/rolling/Concepts/Intermediate/About-Domain-ID.html) and
+[`RMW_IMPLEMENTATION`](https://docs.ros.org/en/rolling/How-To-Guides/Working-with-multiple-RMW-implementations.html)
+environment variables. This starts the API server on `localhost:8000`.
+Example values: `ROS_DOMAIN_ID=1` and `RMW_IMPLEMENTATION=rmw_fastrtps_cpp`
 
 ```
 docker run --network host -it --rm \
