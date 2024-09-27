@@ -77,7 +77,7 @@ repositories:
     version: rolling
   ionic_demo:
     type: git
-    url: https://github.com/xiyuoh/ionic_demo.git
+    url: https://github.com/gazebosim/ionic_demo.git
     version: main
   navigation2:
     type: git

@@ -263,10 +263,6 @@
       </plugin>
     </gui>
 
-    <physics name="1ms" type="ignored">
-      <max_step_size>0.001</max_step_size>
-      <real_time_factor>1.0</real_time_factor>
-    </physics>
     <plugin
       filename="gz-sim-physics-system"
       name="gz::sim::systems::Physics">
@@ -309,6 +305,7 @@
         <falloff>1</falloff>
       </spot>
       <cast_shadows>true</cast_shadows>
+      <visualize>false</visualize>
     </light>
 
     <light type="spot" name="spot_middle">
@@ -329,6 +326,7 @@
         <falloff>1</falloff>
       </spot>
       <cast_shadows>true</cast_shadows>
+      <visualize>false</visualize>
     </light>
 
     <light type="spot" name="spot_longtable">
@@ -349,6 +347,7 @@
         <falloff>1</falloff>
       </spot>
       <cast_shadows>true</cast_shadows>
+      <visualize>false</visualize>
     </light>
 
     <light type="point" name="point_column_01">
@@ -363,6 +362,7 @@
         <quadratic>0.5</quadratic>
       </attenuation>
       <cast_shadows>false</cast_shadows>
+      <visualize>false</visualize>
     </light>
 
     <light type="point" name="point_column_02">
@@ -377,6 +377,7 @@
         <quadratic>0.5</quadratic>
       </attenuation>
       <cast_shadows>false</cast_shadows>
+      <visualize>false</visualize>
     </light>
 
     <include>
