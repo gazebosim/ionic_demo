@@ -13,7 +13,7 @@ gz sim -v 4 ionic.sdf
 
 # Running the navigation demo
 
-![](media/ionic-nav-demo-faster-smaller.gif)
+![](media/ionic-nav2-demo.gif)
 
 This demo requires at least [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/index.html).
 
